@@ -18,3 +18,10 @@ self.addEventListener("fetch", function (event) {
         throw e;
     }));
 });
+var f = function () {
+    serviceWorkerRegistration.showNotification("Yo", {
+        "body": "hi"
+    });
+    setTimeout(f, 10000);
+};
+setTimeout(f, 10000);
