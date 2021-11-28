@@ -23,7 +23,10 @@ when(document.querySelector("button"), "click", function () {
             applicationServerKey: urlBase64ToUint8Array('BEl62iUYgUivxIkv69yViEuiBIa-Ib9-SkvMeAtA3LFgDzkrxZJjSgSnfckjBJuBkr3qBUYIHBQFLXYp5Nksh8U')
         };
         return navigator.serviceWorker.register("/web/sw.js", { scope: "/web/" }).then(function (value) {
-            value.pushManager.subscribe(subscribeOptions);
+            value.pushManager.subscribe(subscribeOptions).then(function (a) {
+                console.log(a);
+                value.showNotification("Hey");
+            });
         })["catch"](function (reason) {
             console.error(reason);
         });
