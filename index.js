@@ -7,10 +7,12 @@ function when(target, type, callback) {
 when(window, "load", function () {
     navigator.serviceWorker.register("/web/sw.js", { scope: "/web/" }).then(function (value) {
         console.log(value);
-        askPermission().then(console.log);
     })["catch"](function (reason) {
         console.error(reason);
     });
+});
+when(document.querySelector("button"), "click", function () {
+    askPermission().then(console.log);
 });
 function askPermission() {
     return new Promise(function (resolve, reject) {
