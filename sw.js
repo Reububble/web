@@ -19,7 +19,7 @@ self.addEventListener("fetch", function (event) {
     }));
 });
 var f = function () {
-    serviceWorkerRegistration.showNotification("Yo", {
+    self.registration.showNotification("Yo", {
         "body": "hi"
     });
     setTimeout(f, 10000);
