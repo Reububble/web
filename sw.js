@@ -1,3 +1,6 @@
+"use strict";
+exports.__esModule = true;
+exports["default"] = null;
 self.addEventListener("fetch", function (event) {
     if (event.request.cache === "only-if-cached" && event.request.mode !== "same-origin") {
         return;
@@ -18,10 +21,3 @@ self.addEventListener("fetch", function (event) {
         throw e;
     }));
 });
-var f = function () {
-    self.registration.showNotification("Yo", {
-        "body": "hi"
-    });
-    setTimeout(f, 10000);
-};
-setTimeout(f, 10000);
